@@ -1,1 +1,4 @@
 test-results
+c_sharp_tdd_ttt/bin
+tests/bin
+tic_tac_toe_lib/bin
