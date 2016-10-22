@@ -1,0 +1,46 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="tests/BoardTests.cs">
+    <Files>
+      <File FileName="c_sharp_tdd_ttt/Main.cs" Line="6" Column="7" />
+      <File FileName="tests/BoardTests.cs" Line="25" Column="26" />
+      <File FileName="tests/GameTests.cs" Line="6" Column="1" />
+      <File FileName="tic_tac_toe_lib/Board.cs" Line="7" Column="20" />
+      <File FileName="tic_tac_toe_lib/Game.cs" Line="7" Column="20" />
+      <File FileName="tic_tac_toe_lib/SquareContents.cs" Line="7" Column="11" />
+      <File FileName="tic_tac_toe_lib/AssemblyInfo.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="c_sharp_tdd_ttt" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="tests" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="BoardTests.cs" selected="True" />
+          </Node>
+          <Node name="tic_tac_toe_lib" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
