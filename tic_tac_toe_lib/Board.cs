@@ -34,15 +34,20 @@ namespace TicTacToe
 
 		//[Pure] // no side effects, i.e. const - this is not built in, 
 		//  it's in another project called Code Contracts
-		public int CalcScore() 
+		public int CalcScore(Player p) 
 		{
 			return 0;
 		}
 
-		// Sets square(0..9) to given value.
+		// Sets square to given value.
 		public void MakeMove(int i, int j, SquareContents s)
 		{
 			m_squares[i, j] = s;
+		}
+
+		public bool IsLegal(int i, int j)
+		{
+			return (m_squares[i, j] == SquareContents.EMPTY);
 		}
 
 		private SquareContents[,] m_squares;
