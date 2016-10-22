@@ -11,7 +11,13 @@ namespace c_console_test
 	{
 		public static void Main (string[] args)
 		{
-			Game g = new Game ();
+			//Game g = new Game ();
+
+			Board b = new Board();
+			
+			int score = b.CalcScore(Player.O); 
+
+
 			Console.WriteLine ("Hello World!");
 		}
 	}
