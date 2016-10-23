@@ -38,6 +38,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="SquareContents.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Ai.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
