@@ -1,24 +1,19 @@
 // ------------------------------------------------------------------------------
 // j.c. TDD tic tac toe learning example - Oct 2016
 // ------------------------------------------------------------------------------
-
 using System;
 using TicTacToe;
 
 namespace c_console_test
 {
-	class MainClass
-	{
-		public static void Main (string[] args)
-		{
-			//Game g = new Game ();
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine ("Hello, this is an awesome game!");
 
-			Board b = new Board();
-			
-			int score = b.CalcScore(Player.O); 
-
-
-			Console.WriteLine ("Hello World!");
-		}
-	}
+            Game g = new Game ();
+            g.Run ();
+        }
+    }
 }

@@ -1,15 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="tic_tac_toe_lib/Board.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="tests/AiTests.cs">
     <Files>
-      <File FileName="c_sharp_tdd_ttt/Main.cs" Line="17" Column="4" />
-      <File FileName="tests/BoardTests.cs" Line="39" Column="1" />
-      <File FileName="tests/GameTests.cs" Line="1" Column="1" />
-      <File FileName="tic_tac_toe_lib/Board.cs" Line="110" Column="6" />
-      <File FileName="tic_tac_toe_lib/Game.cs" Line="7" Column="20" />
+      <File FileName="c_sharp_tdd_ttt/Main.cs" Line="15" Column="1" />
+      <File FileName="tests/BoardTests.cs" Line="20" Column="1" />
+      <File FileName="tests/GameTests.cs" Line="19" Column="18" />
+      <File FileName="tic_tac_toe_lib/Board.cs" Line="46" Column="26" />
+      <File FileName="tic_tac_toe_lib/Game.cs" Line="22" Column="1" />
       <File FileName="tic_tac_toe_lib/SquareContents.cs" Line="1" Column="1" />
       <File FileName="tic_tac_toe_lib/AssemblyInfo.cs" Line="1" Column="1" />
       <File FileName="c_sharp_tdd_ttt/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="tic_tac_toe_lib/Player.cs" Line="15" Column="26" />
+      <File FileName="tests/PlayerTest.cs" Line="19" Column="56" />
+      <File FileName="tests/AiTests.cs" Line="21" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,10 +22,10 @@
           </Node>
           <Node name="tests" expanded="True">
             <Node name="References" expanded="True" />
+            <Node name="AiTests.cs" selected="True" />
           </Node>
           <Node name="tic_tac_toe_lib" expanded="True">
             <Node name="References" expanded="True" />
-            <Node name="Board.cs" selected="True" />
           </Node>
         </State>
       </Pad>
