@@ -26,6 +26,8 @@ namespace TicTacToe
 
         public SquareContents GetContentsAtSquare(int i, int j)
         {
+            ThrowOnBadCoord(i, j);
+
             return m_squares [i, j];
         }
 
@@ -49,11 +51,15 @@ namespace TicTacToe
         // Sets square to given value.
         public void MakeMove(int i, int j, SquareContents s)
         {
+            ThrowOnBadCoord(i, j);
+
             m_squares [i, j] = s;
         }
 
         public bool IsLegal(int i, int j)
         {
+            ThrowOnBadCoord(i, j);
+
             return (m_squares [i, j] == SquareContents.EMPTY);
         }
 
@@ -133,10 +139,24 @@ namespace TicTacToe
 
         private bool DoesSquareBelongToPlayer(int i, int j, Player p)
         {
+            ThrowOnBadCoord(i, j);
+
             SquareContents s = m_squares [i, j];
             if (p == Player.O)
                 return (s == SquareContents.O);
             return (s == SquareContents.X);
+        }
+
+        private void ThrowOnBadCoord(int i, int j)
+        {
+            // Table-style: see this, item 13 http://www.viva64.com/en/b/0391/#ID0E5CAC
+            if (   i < 0 
+                || j < 0
+                || i >= GetSize() 
+                || j >= GetSize())
+            {
+                throw new ArgumentException("Coord out of range");
+            }   
         }
 
         private SquareContents[,] m_squares;

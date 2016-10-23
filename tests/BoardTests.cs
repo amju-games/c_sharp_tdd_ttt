@@ -14,6 +14,49 @@ namespace tests
         {
         }
 
+        // Helpers: functions which throw due to bad args
+        private static void ThrowingBoardFunc1()
+        {
+            Board b = new Board ();
+            b.GetContentsAtSquare(-1, 0);
+        }
+
+        private static void ThrowingBoardFunc2()
+        {
+            Board b = new Board();
+            int n = Board.GetSize();
+            b.GetContentsAtSquare(n, 0);
+        }
+
+        private static void ThrowingBoardFunc3()
+        {
+            Board b = new Board ();
+            b.GetContentsAtSquare(0, -1);
+        }
+        
+        private static void ThrowingBoardFunc4()
+        {
+            Board b = new Board();
+            int n = Board.GetSize();
+            b.GetContentsAtSquare(0, n);
+        }
+
+        [Test]
+        public void ThrowOnBadCoordTest()
+        {
+            Assert.Throws(typeof(ArgumentException),
+                          new TestDelegate(ThrowingBoardFunc1));           
+
+            Assert.Throws(typeof(ArgumentException),
+                          new TestDelegate(ThrowingBoardFunc2));           
+
+            Assert.Throws(typeof(ArgumentException),
+                          new TestDelegate(ThrowingBoardFunc3));           
+
+            Assert.Throws(typeof(ArgumentException),
+                          new TestDelegate(ThrowingBoardFunc4));           
+        }
+
         [Test]
         public void InitialStateTest()
         {
