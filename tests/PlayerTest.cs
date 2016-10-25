@@ -7,9 +7,15 @@ using TicTacToe;
 
 namespace tests
 {
+    [TestFixture]
     public class PlayerTest
     {
         public PlayerTest ()
+        {
+        }
+
+        [Test]
+        void OtherPlayerTest()
         {
             Player p1 = Player.X;
             Assert.AreEqual (Player.O, PlayerUtils.OtherPlayer (p1));
