@@ -19,7 +19,11 @@ namespace tests
         {
             Ai ai = new Ai ();
             Board b = new Board ();
+            int n = Board.GetSize();
+            Assert.AreEqual(n * n, b.GetNumEmptySquares());
+
             ai.MakeMove (b, Player.X);
+            Assert.AreEqual(n * n - 1, b.GetNumEmptySquares());
         }
 
         [Test]
