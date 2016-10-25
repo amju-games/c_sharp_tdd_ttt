@@ -39,6 +39,7 @@
     <Compile Include="SquareContents.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Ai.cs" />
+    <Compile Include="BadAi.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

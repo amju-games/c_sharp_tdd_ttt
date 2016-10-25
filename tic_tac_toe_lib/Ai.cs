@@ -6,14 +6,23 @@ using System;
 
 namespace TicTacToe
 {
-    public class Ai
+    public abstract class Ai
     {
         public Ai ()
         {
         }
 
-        public void MakeMove(Board b, Player p)
+        // Subclasses override this to make a move.
+        // Throws if we can't make a move (because game is over)
+        public abstract void MakeMove(Board b, Player p);
+
+        // Call from subclasses' MakeMove() override
+        protected void ThrowIfCannotMakeMove(Board b)
         {
+            if (b.GetNumEmptySquares() == 0)
+            {
+                throw new ApplicationException("No empty square, can't make move.");
+            }
         }
     }
 }
