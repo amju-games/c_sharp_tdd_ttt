@@ -71,6 +71,25 @@ namespace TicTacToe
             return (m_squares [i, j] == SquareContents.EMPTY);
         }
 
+        // Return the number of empty squares on the board.
+        // This is probably more useful for testing/sanity checking than implementing
+        //  the game.
+        public int GetNumEmptySquares()
+        {
+            int numEmpty = 0;
+            for (int i = 0; i < BOARD_SIZE; i++) 
+            {
+                for (int j = 0; j < BOARD_SIZE; j++) 
+                {
+                    if (m_squares [i, j] == SquareContents.EMPTY)
+                    {
+                        numEmpty++;
+                    }
+                }
+            }
+            return numEmpty;
+        }
+
         public void Draw()
         {
             for (int i = 0; i < BOARD_SIZE; i++) 

@@ -254,6 +254,14 @@ namespace tests
                 }
             }
         }
+
+        [Test]
+        public void NumEmptySquaresTest()
+        {
+            Board b = new Board ();
+            int n = Board.GetSize ();
+            Assert.AreEqual(n * n, b.GetNumEmptySquares());
+        }
     }
 }
 
