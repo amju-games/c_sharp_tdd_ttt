@@ -5,6 +5,7 @@ using System;
 
 namespace TicTacToe
 {
+    // Represents a board for a game of tic tac toe.
     public class Board
     {
         private static int BOARD_SIZE = 4;
@@ -17,8 +18,12 @@ namespace TicTacToe
         public Board ()
         {
             m_squares = new SquareContents[BOARD_SIZE, BOARD_SIZE];
-            for (int i = 0; i < BOARD_SIZE; i++) {
-                for (int j = 0; j < BOARD_SIZE; j++) {
+
+            // Initialise squares to empty
+            for (int i = 0; i < BOARD_SIZE; i++) 
+            {
+                for (int j = 0; j < BOARD_SIZE; j++) 
+                {
                     m_squares [i, j] = SquareContents.EMPTY;
                 }
             }
@@ -37,11 +42,13 @@ namespace TicTacToe
         //[Pure] 
         public int CalcScore(Player p)
         {
-            if (CalcScoreInternal (p) == 1) {
+            if (CalcScoreInternal (p) == 1) 
+            {
                 return 1;
             }
 
-            if (CalcScoreInternal (PlayerUtils.OtherPlayer (p)) == 1) {
+            if (CalcScoreInternal (PlayerUtils.OtherPlayer (p)) == 1) 
+            {
                 return -1;
             }
 
@@ -60,15 +67,18 @@ namespace TicTacToe
         {
             ThrowOnBadCoord(i, j);
 
+            // For tic tac toe it's easy - a move is legal if the destination square is empty
             return (m_squares [i, j] == SquareContents.EMPTY);
         }
 
         public void Draw()
         {
-            for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int i = 0; i < BOARD_SIZE; i++) 
+            {
                 string line = "";
                 string horizontal = "";
-                for (int j = 0; j < BOARD_SIZE; j++) {
+                for (int j = 0; j < BOARD_SIZE; j++) 
+                {
                     SquareContents s = m_squares [i, j];
                     switch (s) {
                     case SquareContents.EMPTY:
@@ -84,13 +94,15 @@ namespace TicTacToe
 
                     horizontal += "---";
 
-                    if (j < (BOARD_SIZE - 1)) {
+                    if (j < (BOARD_SIZE - 1)) 
+                    {
                         line += "|";
                         horizontal += "+";
                     }
                 }
                 Console.WriteLine (line);
-                if (i < (BOARD_SIZE - 1)) {
+                if (i < (BOARD_SIZE - 1)) 
+                {
                     Console.WriteLine (horizontal);
                 }
             }
@@ -142,8 +154,12 @@ namespace TicTacToe
             ThrowOnBadCoord(i, j);
 
             SquareContents s = m_squares [i, j];
+
             if (p == Player.O)
+            {
                 return (s == SquareContents.O);
+            }
+
             return (s == SquareContents.X);
         }
 
