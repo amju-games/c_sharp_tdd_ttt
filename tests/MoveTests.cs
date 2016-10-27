@@ -17,7 +17,7 @@ namespace tests
         [Test]
         public void CreateMoveTest()
         {
-            Move m = new Move(1, 2);
+            Move m = new Move(1, 1, Player.O);
             Board b = new Board();
             Assert.IsTrue(b.IsLegal(m));
         }

@@ -15,10 +15,10 @@ namespace TicTacToe
 
         public override void MakeMove(Board b, Player p) 
         {
-            ThrowIfCannotMakeMove(b);
+            ThrowIfCannotMakeMove(b, p);
 
             // Get list of possible moves - same for either player
-            List<Move> moves = b.GetMoves();
+            List<Move> moves = b.GetMoves(p);
         }
 
     }

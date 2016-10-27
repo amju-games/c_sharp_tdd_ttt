@@ -21,14 +21,16 @@ namespace tests
             Board b = new Board ();
             int n = Board.GetSize();
 
-            // Number of legal moves should be the number of squares on the empty board
             int numSquares = n * n;
-            Assert.AreEqual(numSquares, b.GetMoves().Count);
+            // Number of legal moves should be the number of squares on the empty board
+            Assert.AreEqual(numSquares, b.GetMoves(Player.X).Count);
+            Assert.AreEqual(numSquares, b.GetMoves(Player.O).Count);
 
             ai.MakeMove(b, Player.X);
 
             // One less square is now available
-            Assert.AreEqual(numSquares - 1, b.GetMoves().Count);
+            Assert.AreEqual(numSquares - 1, b.GetMoves(Player.X).Count);
+            Assert.AreEqual(numSquares - 1, b.GetMoves(Player.O).Count);
         }
 
         private static void ThrowsBecauseNoMove()

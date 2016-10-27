@@ -8,10 +8,11 @@ namespace TicTacToe
     // Represents one move in the game.
     public class Move
     {
-        public Move(int r, int c)
+        public Move(int r, int c, Player p)
         {
             row = r;
             col = c;
+            player = p;
         }
 
         // Row property 
@@ -44,6 +45,7 @@ namespace TicTacToe
 
         private int row;
         private int col;
+        private Player player;
     }
 }
 

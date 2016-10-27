@@ -74,7 +74,7 @@ namespace TicTacToe
             return (m_squares[m.Row, m.Col] == SquareContents.EMPTY);
         }
 
-        public List<Move> GetMoves()
+        public List<Move> GetMoves(Player p)
         {
             List<Move> list = new List<Move>();
             for (int i = 0; i < BOARD_SIZE; i++) 
@@ -83,7 +83,7 @@ namespace TicTacToe
                 {
                     if (m_squares [i, j] == SquareContents.EMPTY)
                     {
-                        list.Add(new Move(i, j));
+                        list.Add(new Move(i, j, p));
                     }
                 }
             }

@@ -11,14 +11,14 @@ namespace tests
     [TestFixture]
     public class BoardTests
     {
-        public BoardTests ()
+        public BoardTests()
         {
         }
 
         // Helpers: functions which throw due to bad args
         private static void ThrowingBoardFunc1()
         {
-            Board b = new Board ();
+            Board b = new Board();
             b.GetContentsAtSquare(-1, 0);
         }
 
@@ -31,7 +31,7 @@ namespace tests
 
         private static void ThrowingBoardFunc3()
         {
-            Board b = new Board ();
+            Board b = new Board();
             b.GetContentsAtSquare(0, -1);
         }
         
@@ -61,12 +61,14 @@ namespace tests
         [Test]
         public void InitialStateTest()
         {
-            Board b = new Board ();
-            int n = Board.GetSize ();
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    SquareContents s = b.GetContentsAtSquare (i, j);
-                    Assert.AreEqual (SquareContents.EMPTY, s); // expected, actual
+            Board b = new Board();
+            int n = Board.GetSize();
+            for (int i = 0; i < n; i++) 
+            {
+                for (int j = 0; j < n; j++) 
+                {
+                    SquareContents s = b.GetContentsAtSquare(i, j);
+                    Assert.AreEqual(SquareContents.EMPTY, s); // expected, actual
                 }
             }
         }
@@ -76,6 +78,7 @@ namespace tests
         {
             Board b = new Board ();
 
+            // Neither player has a winning line, so both players have a score of 0.
             int score = b.CalcScore (Player.O); 
             Assert.AreEqual (0, score);
 
@@ -87,8 +90,9 @@ namespace tests
         public void ScoreRowTest()
         {
             int n = Board.GetSize ();
-            for (int i = 0; i < n; i++) {
-                Board b = new Board ();
+            for (int i = 0; i < n; i++) 
+            {
+                Board b = new Board();
 
                 // Make a winning row
                 for (int j = 0; j < n; j++)
@@ -96,9 +100,11 @@ namespace tests
                     b.MakeMove (j, i, SquareContents.X);
                 }
 
+                // Board has winning row for X, so score for X is 1
                 int score = b.CalcScore (Player.X); 
                 Assert.AreEqual (1, score);
 
+                // Board has winning row for X, so score for O is -1
                 score = b.CalcScore (Player.O); 
                 Assert.AreEqual (-1, score);
             }
@@ -227,15 +233,18 @@ namespace tests
         [Test]
         public void MakeMoveTest()
         {
+            // Test that after making a move, the square contains the expected contents.
             Board b = new Board ();
             int n = Board.GetSize ();
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    b.MakeMove (i, j, SquareContents.X); 
+            for (int i = 0; i < n; i++) 
+            {
+                for (int j = 0; j < n; j++) 
+                {
+                    b.MakeMove(i, j, SquareContents.X); 
                     SquareContents s = b.GetContentsAtSquare (i, j);
                     Assert.AreEqual (SquareContents.X, s);  // expected, actual
 
-                    b.MakeMove (i, j, SquareContents.O); 
+                    b.MakeMove(i, j, SquareContents.O); 
                     s = b.GetContentsAtSquare (i, j);
                     Assert.AreEqual (SquareContents.O, s);  // expected, actual
                 }
@@ -251,23 +260,17 @@ namespace tests
             {
                 for (int j = 0; j < n; j++) 
                 {
-                    // Square should be empty, so a legal move
-                    Assert.IsTrue(b.IsLegal(new Move(i, j)));
+                    // Square should be empty, so a legal move for either player
+                    Assert.IsTrue(b.IsLegal(new Move(i, j, Player.X)));
+                    Assert.IsTrue(b.IsLegal(new Move(i, j, Player.O)));
 
                     b.MakeMove(i, j, SquareContents.X); 
 
-                    // Now square is non-empty, not a legal move
-                    Assert.IsFalse(b.IsLegal(new Move(i, j)));
+                    // Now square is non-empty, not a legal move for either player
+                    Assert.IsFalse(b.IsLegal(new Move(i, j, Player.X)));
+                    Assert.IsFalse(b.IsLegal(new Move(i, j, Player.O)));
                 }
             }
-        }
-
-        [Test]
-        public void NumEmptySquaresTest()
-        {
-            Board b = new Board ();
-            int n = Board.GetSize ();
-            Assert.AreEqual(n * n, b.GetMoves().Count);
         }
 
         [Test]
@@ -277,8 +280,12 @@ namespace tests
             Board b = new Board();
             int n = Board.GetSize();
 
-            List<Move> moves = b.GetMoves();
-            Assert.AreEqual(n * n, moves.Count);
+            // Empty board, both players should have n * n possible moves
+            List<Move> movesX = b.GetMoves(Player.X);
+            Assert.AreEqual(n * n, movesX.Count);
+
+            List<Move> movesO = b.GetMoves(Player.X);
+            Assert.AreEqual(n * n, movesO.Count);
         }
     }
 }
