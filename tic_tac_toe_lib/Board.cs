@@ -2,12 +2,14 @@
 // j.c. TDD tic tac toe learning example - Oct 2016
 // ------------------------------------------------------------------------------
 using System;
+using System.Collections.Generic;
 
 namespace TicTacToe
 {
     // Represents a board for a game of tic tac toe.
     public class Board
     {
+        // The side length of the square board - 3 is the standard value
         private static int BOARD_SIZE = 4;
 
         public static int GetSize()
@@ -15,7 +17,8 @@ namespace TicTacToe
             return BOARD_SIZE;
         }
 
-        public Board ()
+        // TODO perhaps pass in size here?
+        public Board()
         {
             m_squares = new SquareContents[BOARD_SIZE, BOARD_SIZE];
 
@@ -63,33 +66,30 @@ namespace TicTacToe
             m_squares [i, j] = s;
         }
 
-        public bool IsLegal(int i, int j)
+        public bool IsLegal(Move m)
         {
-            ThrowOnBadCoord(i, j);
+            ThrowOnBadCoord(m.Row, m.Col);
 
             // For tic tac toe it's easy - a move is legal if the destination square is empty
-            return (m_squares [i, j] == SquareContents.EMPTY);
+            return (m_squares[m.Row, m.Col] == SquareContents.EMPTY);
         }
 
-        // Return the number of empty squares on the board.
-        // This is probably more useful for testing/sanity checking than implementing
-        //  the game.
-        public int GetNumEmptySquares()
+        public List<Move> GetMoves()
         {
-            int numEmpty = 0;
+            List<Move> list = new List<Move>();
             for (int i = 0; i < BOARD_SIZE; i++) 
             {
                 for (int j = 0; j < BOARD_SIZE; j++) 
                 {
                     if (m_squares [i, j] == SquareContents.EMPTY)
                     {
-                        numEmpty++;
+                        list.Add(new Move(i, j));
                     }
                 }
             }
-            return numEmpty;
+            return list;
         }
-
+                
         public void Draw()
         {
             for (int i = 0; i < BOARD_SIZE; i++) 

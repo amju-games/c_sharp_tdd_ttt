@@ -20,10 +20,15 @@ namespace tests
             Ai ai = new BadAi ();
             Board b = new Board ();
             int n = Board.GetSize();
-            Assert.AreEqual(n * n, b.GetNumEmptySquares());
 
-            ai.MakeMove (b, Player.X);
-            Assert.AreEqual(n * n - 1, b.GetNumEmptySquares());
+            // Number of legal moves should be the number of squares on the empty board
+            int numSquares = n * n;
+            Assert.AreEqual(numSquares, b.GetMoves().Count);
+
+            ai.MakeMove(b, Player.X);
+
+            // One less square is now available
+            Assert.AreEqual(numSquares - 1, b.GetMoves().Count);
         }
 
         private static void ThrowsBecauseNoMove()

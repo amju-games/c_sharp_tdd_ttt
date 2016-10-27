@@ -3,6 +3,7 @@
 // ------------------------------------------------------------------------------
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using TicTacToe;
 
 namespace tests
@@ -246,11 +247,17 @@ namespace tests
         {
             Board b = new Board ();
             int n = Board.GetSize ();
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    Assert.IsTrue (b.IsLegal (i, j));
-                    b.MakeMove (i, j, SquareContents.X); 
-                    Assert.IsFalse (b.IsLegal (i, j));
+            for (int i = 0; i < n; i++) 
+            {
+                for (int j = 0; j < n; j++) 
+                {
+                    // Square should be empty, so a legal move
+                    Assert.IsTrue(b.IsLegal(new Move(i, j)));
+
+                    b.MakeMove(i, j, SquareContents.X); 
+
+                    // Now square is non-empty, not a legal move
+                    Assert.IsFalse(b.IsLegal(new Move(i, j)));
                 }
             }
         }
@@ -260,7 +267,18 @@ namespace tests
         {
             Board b = new Board ();
             int n = Board.GetSize ();
-            Assert.AreEqual(n * n, b.GetNumEmptySquares());
+            Assert.AreEqual(n * n, b.GetMoves().Count);
+        }
+
+        [Test]
+        public void MoveListTest()
+        {
+            // Tests on the list of valid moves for a given Board
+            Board b = new Board();
+            int n = Board.GetSize();
+
+            List<Move> moves = b.GetMoves();
+            Assert.AreEqual(n * n, moves.Count);
         }
     }
 }

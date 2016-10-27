@@ -19,7 +19,7 @@ namespace TicTacToe
         // Call from subclasses' MakeMove() override
         protected void ThrowIfCannotMakeMove(Board b)
         {
-            if (b.GetNumEmptySquares() == 0)
+            if (b.GetMoves().Count == 0)
             {
                 throw new ApplicationException("No empty square, can't make move.");
             }
