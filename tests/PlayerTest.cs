@@ -15,7 +15,7 @@ namespace tests
         }
 
         [Test]
-        void OtherPlayerTest()
+        public void OtherPlayerTest()
         {
             Player p1 = Player.X;
             Assert.AreEqual (Player.O, PlayerUtils.OtherPlayer (p1));
