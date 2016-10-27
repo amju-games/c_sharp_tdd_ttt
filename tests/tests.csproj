@@ -41,6 +41,7 @@
     <Compile Include="GameTests.cs" />
     <Compile Include="PlayerTest.cs" />
     <Compile Include="AiTests.cs" />
+    <Compile Include="MoveTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
