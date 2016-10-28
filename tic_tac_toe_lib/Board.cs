@@ -10,7 +10,7 @@ namespace TicTacToe
     public class Board
     {
         // The side length of the square board - 3 is the standard value
-        private static int BOARD_SIZE = 4;
+        private static int BOARD_SIZE = 3;
 
         public static int GetSize()
         {

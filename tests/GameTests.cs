@@ -17,8 +17,32 @@ namespace tests
         [Test]
         public void RunTest()
         {
-            Game g = new Game ();
-            g.Run ();
+            // Create AI player, play until board is full or there is a winner
+            Board b = new Board();
+            Ai ai = new BadAi();
+            Player p = Player.X; // starting player
+
+            while (b.GetMoves(p).Count > 0 && b.CalcScore(Player.X) == 0)
+            {
+                Console.WriteLine("");
+
+                ai.MakeMove(b, p);
+                b.Draw ();
+                p = PlayerUtils.OtherPlayer(p);
+            }
+            int score = b.CalcScore(Player.X);
+            if (score == 1)
+            {
+                Console.WriteLine("Win for X!");
+            }
+            else if (score == -1)
+            {
+                Console.WriteLine("Win for O!");
+            }
+            else 
+            {
+                Console.WriteLine("It's a draw.");
+            }
         }
     }
 }
