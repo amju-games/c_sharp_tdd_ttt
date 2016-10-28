@@ -59,11 +59,13 @@ namespace TicTacToe
         }
 
         // Sets square to given value.
-        public void MakeMove(int i, int j, SquareContents s)
+        public void MakeMove(Move m)
         {
-            ThrowOnBadCoord(i, j);
+            ThrowOnBadCoord(m.Row, m.Col);
 
-            m_squares [i, j] = s;
+            // TODO throw if not empty?
+
+            m_squares[m.Row, m.Col] = PlayerUtils.SquareContentsFromPlayer(m.Player);
         }
 
         public bool IsLegal(Move m)

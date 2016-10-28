@@ -11,6 +11,7 @@ namespace TicTacToe
     {
         public BadAi()
         {
+            rnd = new Random();
         }
 
         public override void MakeMove(Board b, Player p) 
@@ -19,8 +20,11 @@ namespace TicTacToe
 
             // Get list of possible moves - same for either player
             List<Move> moves = b.GetMoves(p);
+            int r = rnd.Next(0, moves.Count);
+            b.MakeMove(moves[r]);
         }
 
+        private Random rnd;
     }
 }
 

@@ -41,10 +41,10 @@ namespace tests
             int nsq = n * n;
             for (int i = 0; i < nsq; i++)
             {
-                ai.MakeMove (b, Player.X);
+                ai.MakeMove(b, Player.X);
             }
             // Board is full - now try to make a move, will throw
-            ai.MakeMove (b, Player.X);
+            ai.MakeMove(b, Player.X);
         }
 
         [Test]

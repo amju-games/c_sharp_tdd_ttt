@@ -97,7 +97,7 @@ namespace tests
                 // Make a winning row
                 for (int j = 0; j < n; j++)
                 {
-                    b.MakeMove (j, i, SquareContents.X);
+                    b.MakeMove(new Move(j, i, Player.X));
                 }
 
                 // Board has winning row for X, so score for X is 1
@@ -114,7 +114,7 @@ namespace tests
 
                 for (int j = 0; j < n; j++)
                 {
-                    b.MakeMove (j, i, SquareContents.O);
+                    b.MakeMove(new Move(j, i, Player.O));
                 }
 
                 int score = b.CalcScore (Player.O); 
@@ -135,7 +135,7 @@ namespace tests
                 // Make a winning column
                 for (int j = 0; j < n; j++)
                 {
-                    b.MakeMove (i, j, SquareContents.X);
+                    b.MakeMove(new Move(i, j, Player.X));
                 }                
 
                 int score = b.CalcScore (Player.X); 
@@ -151,7 +151,7 @@ namespace tests
                 // Make a winning column
                 for (int j = 0; j < n; j++)
                 {
-                    b.MakeMove (i, j, SquareContents.O);
+                    b.MakeMove(new Move(i, j, Player.O));
                 }
 
                 int score = b.CalcScore (Player.O); 
@@ -170,7 +170,7 @@ namespace tests
             Board b = new Board ();
             // Make diag winning position
             for (int i = 0; i < n; i++) {
-                b.MakeMove (i, i, SquareContents.X);
+                b.MakeMove(new Move(i, i, Player.X));
             }
             int score = b.CalcScore (Player.X); 
             Assert.AreEqual (1, score);
@@ -187,7 +187,7 @@ namespace tests
             Board b = new Board ();
             // Make diag winning position
             for (int i = 0; i < n; i++) {
-                b.MakeMove (i, i, SquareContents.O);
+                b.MakeMove(new Move(i, i, Player.O));
             }
             int score = b.CalcScore (Player.X); 
             Assert.AreEqual (-1, score);
@@ -204,7 +204,7 @@ namespace tests
             Board b = new Board ();
             // Make diag winning position
             for (int i = 0; i < n; i++) {
-                b.MakeMove (i, n - i - 1, SquareContents.X);
+                b.MakeMove(new Move(i, n - i - 1, Player.X));
             }
             int score = b.CalcScore (Player.X); 
             Assert.AreEqual (1, score);
@@ -221,7 +221,7 @@ namespace tests
             Board b = new Board ();
             // Make diag winning position
             for (int i = 0; i < n; i++) {
-                b.MakeMove (i, n - i - 1, SquareContents.O);
+                b.MakeMove(new Move(i, n - i - 1, Player.O));
             }
             int score = b.CalcScore (Player.X); 
             Assert.AreEqual (-1, score);
@@ -240,11 +240,11 @@ namespace tests
             {
                 for (int j = 0; j < n; j++) 
                 {
-                    b.MakeMove(i, j, SquareContents.X); 
+                    b.MakeMove(new Move(i, j, Player.X)); 
                     SquareContents s = b.GetContentsAtSquare (i, j);
                     Assert.AreEqual (SquareContents.X, s);  // expected, actual
 
-                    b.MakeMove(i, j, SquareContents.O); 
+                    b.MakeMove(new Move(i, j, Player.O)); 
                     s = b.GetContentsAtSquare (i, j);
                     Assert.AreEqual (SquareContents.O, s);  // expected, actual
                 }
@@ -264,7 +264,7 @@ namespace tests
                     Assert.IsTrue(b.IsLegal(new Move(i, j, Player.X)));
                     Assert.IsTrue(b.IsLegal(new Move(i, j, Player.O)));
 
-                    b.MakeMove(i, j, SquareContents.X); 
+                    b.MakeMove(new Move(i, j, Player.X)); 
 
                     // Now square is non-empty, not a legal move for either player
                     Assert.IsFalse(b.IsLegal(new Move(i, j, Player.X)));

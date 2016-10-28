@@ -15,6 +15,14 @@ namespace TicTacToe
             player = p;
         }
 
+        public Player Player
+        {
+            get
+            {
+                return player;
+            }
+        }
+
         // Row property 
         public int Row
         {
