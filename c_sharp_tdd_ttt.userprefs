@@ -1,45 +1,34 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="tests/AiTests.cs">
+﻿<Properties StartupItem="c_sharp_tdd_ttt/c_sharp_tdd_ttt.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="tests/BoardTests.cs">
     <Files>
-      <File FileName="c_sharp_tdd_ttt/Main.cs" Line="15" Column="1" />
-      <File FileName="tests/BoardTests.cs" Line="20" Column="1" />
-      <File FileName="tests/GameTests.cs" Line="19" Column="18" />
-      <File FileName="tic_tac_toe_lib/Board.cs" Line="46" Column="26" />
-      <File FileName="tic_tac_toe_lib/Game.cs" Line="22" Column="1" />
+      <File FileName="c_sharp_tdd_ttt/Main.cs" Line="1" Column="1" />
+      <File FileName="tests/BoardTests.cs" Line="4" Column="7" />
+      <File FileName="tic_tac_toe_lib/Board.cs" Line="1" Column="1" />
+      <File FileName="tests/AiTests.cs" Line="4" Column="1" />
+      <File FileName="tic_tac_toe_lib/Ai.cs" Line="1" Column="1" />
+      <File FileName="tic_tac_toe_lib/Game.cs" Line="1" Column="1" />
+      <File FileName="tic_tac_toe_lib/BadAi.cs" Line="1" Column="1" />
+      <File FileName="tic_tac_toe_lib/Move.cs" Line="1" Column="1" />
+      <File FileName="tests/MoveTests.cs" Line="4" Column="1" />
+      <File FileName="tests/PlayerTest.cs" Line="4" Column="1" />
       <File FileName="tic_tac_toe_lib/SquareContents.cs" Line="1" Column="1" />
-      <File FileName="tic_tac_toe_lib/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="c_sharp_tdd_ttt/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="tic_tac_toe_lib/Player.cs" Line="15" Column="26" />
-      <File FileName="tests/PlayerTest.cs" Line="19" Column="56" />
-      <File FileName="tests/AiTests.cs" Line="21" Column="21" />
+      <File FileName="tic_tac_toe_lib/Player.cs" Line="1" Column="1" />
+      <File FileName="tests/GameTests.cs" Line="4" Column="1" />
     </Files>
     <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
           <Node name="c_sharp_tdd_ttt" expanded="True">
-            <Node name="References" expanded="True" />
-          </Node>
-          <Node name="tests" expanded="True">
-            <Node name="References" expanded="True" />
-            <Node name="AiTests.cs" selected="True" />
-          </Node>
-          <Node name="tic_tac_toe_lib" expanded="True">
-            <Node name="References" expanded="True" />
+            <Node name="tests" expanded="True">
+              <Node name="tests" expanded="True">
+                <Node name="AiTests" expanded="True">
+                  <Node name="BadAiOpeningMoveTest" selected="True" />
+                </Node>
+              </Node>
+            </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-      <Pad Id="ConnectionManagerPad">
-        <State selected="True" />
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
