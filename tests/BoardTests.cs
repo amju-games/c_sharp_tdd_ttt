@@ -25,7 +25,7 @@ namespace tests
         private static void ThrowingBoardFunc2()
         {
             Board b = new Board();
-            int n = Board.GetSize();
+            int n = b.GetSize();
             b.GetContentsAtSquare(n, 0);
         }
 
@@ -38,7 +38,7 @@ namespace tests
         private static void ThrowingBoardFunc4()
         {
             Board b = new Board();
-            int n = Board.GetSize();
+            int n = b.GetSize();
             b.GetContentsAtSquare(0, n);
         }
 
@@ -62,7 +62,7 @@ namespace tests
         public void InitialStateTest()
         {
             Board b = new Board();
-            int n = Board.GetSize();
+            int n = b.GetSize();
             for (int i = 0; i < n; i++) 
             {
                 for (int j = 0; j < n; j++) 
@@ -89,10 +89,10 @@ namespace tests
         [Test]
         public void ScoreRowTest()
         {
-            int n = Board.GetSize ();
+            const int n = 3;
             for (int i = 0; i < n; i++) 
             {
-                Board b = new Board();
+                Board b = new Board(n);
 
                 // Make a winning row
                 for (int j = 0; j < n; j++)
@@ -101,36 +101,37 @@ namespace tests
                 }
 
                 // Board has winning row for X, so score for X is 1
-                int score = b.CalcScore (Player.X); 
-                Assert.AreEqual (1, score);
+                int score = b.CalcScore(Player.X); 
+                Assert.AreEqual(1, score);
 
                 // Board has winning row for X, so score for O is -1
                 score = b.CalcScore (Player.O); 
                 Assert.AreEqual (-1, score);
             }
 
-            for (int i = 0; i < n; i++) {
-                Board b = new Board ();
+            for (int i = 0; i < n; i++) 
+            {
+                Board b = new Board(n);
 
                 for (int j = 0; j < n; j++)
                 {
                     b.MakeMove(new Move(j, i, Player.O));
                 }
 
-                int score = b.CalcScore (Player.O); 
-                Assert.AreEqual (1, score);
+                int score = b.CalcScore(Player.O); 
+                Assert.AreEqual(1, score);
                 
                 score = b.CalcScore (Player.X); 
-                Assert.AreEqual (-1, score);
+                Assert.AreEqual(-1, score);
             }
         }
 
         [Test]
         public void ScoreColumnTest()
         {
-            int n = Board.GetSize ();
+            const int n = 3;
             for (int i = 0; i < n; i++) {
-                Board b = new Board ();
+                Board b = new Board (n);
 
                 // Make a winning column
                 for (int j = 0; j < n; j++)
@@ -146,7 +147,7 @@ namespace tests
             }
             
             for (int i = 0; i < n; i++) {
-                Board b = new Board ();
+                Board b = new Board (n);
 
                 // Make a winning column
                 for (int j = 0; j < n; j++)
@@ -165,9 +166,9 @@ namespace tests
         [Test]
         public void ScoreDiag1Test()
         {
-            int n = Board.GetSize ();
+            const int n = 3;
+            Board b = new Board(n);
 
-            Board b = new Board ();
             // Make diag winning position
             for (int i = 0; i < n; i++) {
                 b.MakeMove(new Move(i, i, Player.X));
@@ -182,9 +183,9 @@ namespace tests
         [Test]
         public void ScoreDiag2Test()
         {
-            int n = Board.GetSize ();
-            
-            Board b = new Board ();
+            const int n = 3;
+            Board b = new Board(n);
+
             // Make diag winning position
             for (int i = 0; i < n; i++) {
                 b.MakeMove(new Move(i, i, Player.O));
@@ -199,9 +200,9 @@ namespace tests
         [Test]
         public void ScoreDiag3Test()
         {
-            int n = Board.GetSize ();
-            
-            Board b = new Board ();
+            const int n = 3;
+            Board b = new Board(n);
+
             // Make diag winning position
             for (int i = 0; i < n; i++) {
                 b.MakeMove(new Move(i, n - i - 1, Player.X));
@@ -216,9 +217,9 @@ namespace tests
         [Test]
         public void ScoreDiag4Test()
         {
-            int n = Board.GetSize ();
-            
-            Board b = new Board ();
+            const int n = 3;
+            Board b = new Board(n);
+
             // Make diag winning position
             for (int i = 0; i < n; i++) {
                 b.MakeMove(new Move(i, n - i - 1, Player.O));
@@ -234,8 +235,9 @@ namespace tests
         public void MakeMoveTest()
         {
             // Test that after making a move, the square contains the expected contents.
-            Board b = new Board ();
-            int n = Board.GetSize ();
+            const int n = 3;
+            Board b = new Board(n);
+
             for (int i = 0; i < n; i++) 
             {
                 for (int j = 0; j < n; j++) 
@@ -254,8 +256,9 @@ namespace tests
         [Test]
         public void IsMoveLegalTest()
         {
-            Board b = new Board ();
-            int n = Board.GetSize ();
+            const int n = 3;
+            Board b = new Board(n);
+
             for (int i = 0; i < n; i++) 
             {
                 for (int j = 0; j < n; j++) 
@@ -277,8 +280,8 @@ namespace tests
         public void MoveListTest()
         {
             // Tests on the list of valid moves for a given Board
-            Board b = new Board();
-            int n = Board.GetSize();
+            const int n = 3;
+            Board b = new Board(n);
 
             // Empty board, both players should have n * n possible moves
             List<Move> movesX = b.GetMoves(Player.X);

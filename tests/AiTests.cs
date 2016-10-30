@@ -17,9 +17,9 @@ namespace tests
         [Test]
         public void BadAiOpeningMoveTest()
         {
-            Ai ai = new BadAi ();
-            Board b = new Board ();
-            int n = Board.GetSize();
+            Ai ai = new BadAi();
+            const int n = 3;
+            Board b = new Board(n);
 
             int numSquares = n * n;
             // Number of legal moves should be the number of squares on the empty board
@@ -35,9 +35,9 @@ namespace tests
 
         private static void ThrowsBecauseNoMove()
         {
-            Ai ai = new BadAi ();
-            Board b = new Board ();
-            int n = Board.GetSize();
+            Ai ai = new BadAi();
+            const int n = 3;
+            Board b = new Board(n);
             int nsq = n * n;
             for (int i = 0; i < nsq; i++)
             {

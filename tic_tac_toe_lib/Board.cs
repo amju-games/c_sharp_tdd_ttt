@@ -9,23 +9,26 @@ namespace TicTacToe
     // Represents a board for a game of tic tac toe.
     public class Board
     {
-        // The side length of the square board - 3 is the standard value
-        private static int BOARD_SIZE = 3;
+        // The default side length of the square board - 3 is the standard value
+        private const int DEFAULT_BOARD_SIZE = 3;
 
-        public static int GetSize()
+        private int boardSize;
+
+        public int GetSize()
         {
-            return BOARD_SIZE;
+            return boardSize;
         }
 
         // TODO perhaps pass in size here?
-        public Board()
+        public Board(int boardSize_ = DEFAULT_BOARD_SIZE)
         {
-            m_squares = new SquareContents[BOARD_SIZE, BOARD_SIZE];
+            boardSize = boardSize_;
+            m_squares = new SquareContents[boardSize, boardSize];
 
             // Initialise squares to empty
-            for (int i = 0; i < BOARD_SIZE; i++) 
+            for (int i = 0; i < boardSize; i++) 
             {
-                for (int j = 0; j < BOARD_SIZE; j++) 
+                for (int j = 0; j < boardSize; j++) 
                 {
                     m_squares [i, j] = SquareContents.EMPTY;
                 }
@@ -79,9 +82,9 @@ namespace TicTacToe
         public List<Move> GetMoves(Player p)
         {
             List<Move> list = new List<Move>();
-            for (int i = 0; i < BOARD_SIZE; i++) 
+            for (int i = 0; i < boardSize; i++) 
             {
-                for (int j = 0; j < BOARD_SIZE; j++) 
+                for (int j = 0; j < boardSize; j++) 
                 {
                     if (m_squares [i, j] == SquareContents.EMPTY)
                     {
@@ -94,11 +97,11 @@ namespace TicTacToe
                 
         public void Draw()
         {
-            for (int i = 0; i < BOARD_SIZE; i++) 
+            for (int i = 0; i < boardSize; i++) 
             {
                 string line = "";
                 string horizontal = "";
-                for (int j = 0; j < BOARD_SIZE; j++) 
+                for (int j = 0; j < boardSize; j++) 
                 {
                     SquareContents s = m_squares [i, j];
                     switch (s) {
@@ -115,14 +118,14 @@ namespace TicTacToe
 
                     horizontal += "---";
 
-                    if (j < (BOARD_SIZE - 1)) 
+                    if (j < (boardSize - 1)) 
                     {
                         line += "|";
                         horizontal += "+";
                     }
                 }
                 Console.WriteLine (line);
-                if (i < (BOARD_SIZE - 1)) 
+                if (i < (boardSize - 1)) 
                 {
                     Console.WriteLine (horizontal);
                 }
@@ -135,16 +138,20 @@ namespace TicTacToe
         {
             bool diag1 = true;
             bool diag2 = true;
-            for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int i = 0; i < boardSize; i++) 
+            {
                 bool column = true;
                 bool row = true;
                 // Check rows and columns
-                for (int j = 0; j < BOARD_SIZE; j++) {
-                    if (!DoesSquareBelongToPlayer (i, j, p)) {
+                for (int j = 0; j < boardSize; j++) 
+                {
+                    if (!DoesSquareBelongToPlayer (i, j, p)) 
+                    {
                         column = false;
                     }
 
-                    if (!DoesSquareBelongToPlayer (j, i, p)) {
+                    if (!DoesSquareBelongToPlayer (j, i, p)) 
+                    {
                         row = false;
                     }
                 }
@@ -158,7 +165,7 @@ namespace TicTacToe
                     diag1 = false;
                 }
 
-                if (!DoesSquareBelongToPlayer (i, BOARD_SIZE - i - 1, p)) {
+                if (!DoesSquareBelongToPlayer (i, boardSize - i - 1, p)) {
                     diag2 = false;
                 }
             }
@@ -174,7 +181,7 @@ namespace TicTacToe
         {
             ThrowOnBadCoord(i, j);
 
-            SquareContents s = m_squares [i, j];
+            SquareContents s = m_squares[i, j];
 
             if (p == Player.O)
             {
